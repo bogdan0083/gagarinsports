@@ -1,0 +1,33 @@
+.mobile-menu {
+  position: fixed;
+  height: calc(100% - 70px);
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(#fdfdfd, 0.9);
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  justify-content: center;
+  z-index: 1000;
+  display: none;
+  @include up('md') {
+    display: none;
+  }
+
+  &__nav {
+    a {
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+      font-weight: 500;
+      font-size: 24px;
+      width: 100%;
+      padding: 10px 0;
+    }
+  }
+
+  &__social-icons {
+    margin-top: 40px;
+  }
+}

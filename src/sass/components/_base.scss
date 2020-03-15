@@ -9,15 +9,10 @@
 //@include font-face("Gilroy", "../fonts/Gilroy-Light", 300, normal);
 //@include font-face("Gilroy", "../fonts/Gilroy-LightItalic", 300, italic);
 //
-//@mixin gilroy($weight: null, $style: null) {
-//  font-family: "Gilroy", $font-family-base;
-//  font-weight: $weight;
-//  font-style: $style;
-//}
-
-html {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+@mixin dinCondensed($weight: null, $style: null) {
+  font-family: "DIN Pro Cond", $font-family-base;
+  font-weight: $weight;
+  font-style: $style;
 }
 
 // Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
@@ -37,8 +32,15 @@ html {
 
 /* Base styles start */
 body {
-  background-color: #f3f3f3;
+  background: white url('../img/main-bg.jpg');
+  color: #000;
+  font-family: $ff;
   min-width: 320px;
+  font-size: 14px;
+  line-height: 1.4;
+  @include up('md') {
+    font-size: 16px;
+  }
   //@include gilroy();
 }
 
@@ -61,13 +63,17 @@ img {
   width: auto;
 }
 
+.page-wrapper {
+  overflow: hidden;
+}
+
 /* Base styles end*/
 
 // enable container mixins. Disabled by default.
-//.container {
-//  @include make-container();
-//  @include make-container-max-widths();
-//}
+.container {
+  @include make-container();
+  @include make-container-max-widths();
+}
 
 .container-flex {
   display: flex;
@@ -90,13 +96,19 @@ img {
 
 }
 
+.social-icons {
+  background-color: red;
+  height: 30px;
+  width: 200px;
+}
+
 .mobile-nav-trigger {
   display: block;
   cursor: pointer;
   transition: all 0.4s;
 
   .burger {
-    @include burger(20px, 4px, 9px, $black);
+    @include burger(30px, 3px, 8px, $black);
   }
 
   &.active {
@@ -110,61 +122,75 @@ img {
   list-style: none;
   padding: 0;
   margin: 0;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .button {
-  height: 60px;
-  line-height: 58px;
-  display: block;
-  width: 285px;
+  height: 50px;
+  line-height: 48px;
+  display: inline-block;
   padding-left: 20px;
   padding-right: 20px;
   text-decoration: none;
   transition: all 0.4s;
   border: none;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 18px;
   text-align: center;
-  background-color: $primary;
+  background-color: $background-primary;
   color: $white;
+  @include dinCondensed();
+  font-weight: 400;
   cursor: pointer;
   overflow: hidden;
   position: relative;
+  transform: skew(-15deg, 0);
+  box-shadow: 0 0 7px 3px rgba(black, 0.1);
+
+  &__wrapper {
+    transform: skew(15deg, 0);
+    position: relative;
+    z-index: 1;
+  }
 
   &:focus, &:hover {
     outline: none;
+    background-color: $primary;
+    color: white;
     box-shadow: 0 0 10px 3px rgba($primary, 0.1);
   }
 
-  .text {
-    position: relative;
-    z-index: 2;
-  }
-
-  &:before, .button-combined-main:before, .button-combined-right:before {
-    content: '';
-    background-color: $white;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    position: absolute;
-    transform: translateY(-113%);
-    transition: all 0.4s;
-    @include up('md') {
-      display: block;
-    }
-  }
-
+  //&:before {
+  //  content: '';
+  //  background-color: $primary;
+  //  width: 100%;
+  //  height: 100%;
+  //  left: 0;
+  //  top: 0;
+  //  position: absolute;
+  //  transform: translateX(-100%);
+  //  transition: all 0.3s;
+  //  display: block;
+  //}
+  //
   &:hover {
-    color: $primary;
-
     &:before {
       transform: none;
     }
   }
 }
 
+.scrolldown-trigger {
+  background-color: red;
+  width: 11px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  display: inline-block;
+}
 .color-primary {
   color: $primary;
 }
@@ -340,14 +366,15 @@ img {
 }
 
 .section-title {
-  text-align: center;
   margin-top: 0;
   font-size: 36px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
   position: relative;
   z-index: 1;
-  color: #515456;
+  text-transform: uppercase;
+  font-family: 'DIN Pro Cond', sans-serif;
+  color: black;
 
   span {
     font-weight: bold;
@@ -355,6 +382,10 @@ img {
     @include up('md') {
       display: inline;
     }
+  }
+
+  @include up('md') {
+    font-size: 45px;
   }
 
   @include up('lg') {
