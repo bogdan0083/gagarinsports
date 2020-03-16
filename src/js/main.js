@@ -8,6 +8,11 @@ $(function () {
   var $aboutUsSection = $('#about-us');
   var controller = new ScrollMagic.Controller();
 
+  // Инициализация всех слайдеров
+  initSliders();
+
+  // Анимация футера
+  animateFooter();
 
   if (promoSection.length > 0) { // Запускаем анимацию на главной
     animatePromoSection();
@@ -108,7 +113,7 @@ $(function () {
     tl.fromTo('.js-rocket-progress', 1, {xPercent: -100}, {xPercent: 0});
 
     var secondPromoScene = new ScrollMagic.Scene({
-      triggerElement: '#projects',
+      triggerElement: '#services',
       triggerHook: 1,
       duration: '100%'
     })
@@ -116,4 +121,49 @@ $(function () {
       .addTo(controller);
   }
 
+  function initSliders() {
+
+    // Слайдер проектов
+    var projectsSwiper = new Swiper('.projects-slider', {
+      spaceBetween: 200,
+      // loop: true,
+      navigation: {
+        prevEl: '.projects-navigation__arrow--prev',
+        nextEl: '.projects-navigation__arrow--next'
+      }
+    });
+
+    // Слайдер новостей
+    var newsSwiper = new Swiper('.news-slider', {
+      spaceBetween: 1,
+      slidesPerView: 3,
+      loop: true,
+      breakpoints: {
+        310: {
+          spaceBetween: 1,
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        1500: {
+          slidesPerView: 4,
+        }
+      },
+    });
+  }
+
+  function animateFooter() {
+    var tl = new TimelineMax();
+
+    tl.fromTo('.js-rocket-progress-footer', 1, {xPercent: -100}, {xPercent: 0});
+
+    var secondPromoScene = new ScrollMagic.Scene({
+      triggerElement: '.footer',
+      triggerHook: 1,
+      duration: $('.footer').height()
+    })
+      .setTween(tl)
+      .addTo(controller);
+  }
 });

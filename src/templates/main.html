@@ -255,17 +255,18 @@ title: Главная страница
             </svg>
           </div>
         </div>
+
         <div class="promo__bottom">
           <!-- BEGIN social-icons -->
           <div class="social-icons promo__social-icons">
-            <a href="#promo-logo-" class="social-icon"></a>
-            <a href="#promo-logo-" class="social-icon"></a>
-            <a href="#promo-logo-" class="social-icon"></a>
-            <a href="#promo-logo-" class="social-icon"></a>
+            <a href="#" class="icon icon-telegram"></a>
+            <a href="#" class="icon icon-facebook"></a>
+            <a href="#" class="icon icon-vk"></a>
+            <a href="#" class="icon icon-instagram"></a>
           </div>
           <!-- END social-icons -->
           <!-- BEGIN scrolldown-trigger -->
-          <a class="scrolldown-trigger" href="#about-us" role="button">
+          <a class="scrolldown-trigger icon icon-mouse" href="#about-us" role="button">
           </a>
           <!-- END scrolldown-trigger -->
         </div>
@@ -273,70 +274,358 @@ title: Главная страница
     </section>
   </div>
   <!-- END promo -->
-  <!-- BEGIN about-us -->
-  <section class="about-us" id="about-us">
-    <div class="container">
-      <div class="rect" id="rect-blue-1" aria-hidden="true"></div>
-      <div class="rect rect-white" id="rect-white-1" aria-hidden="true"></div>
-      <div class="rect" id="rect-blue-2" aria-hidden="true"></div>
-      <div class="rect" id="rect-blue-3" aria-hidden="true"></div>
-      <div class="rect rect-red" id="rect-red-1" aria-hidden="true"></div>
-      <h2 class="section-title">О нас</h2>
-      <p class="about-us__subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque error esse
-        ipsam magni mollitia nesciunt veniam. Esse necessitatibus nemo porro. Amet architecto consequuntur cum, earum in
-        itaque non ut?</p>
-      <a href="#" class="button about-us__top-button">
-        <div class="button__wrapper">
-          <span class="text">Будь первым!</span>
-        </div>
-      </a>
-      <div class="vector-map">
-        <div class="vector-map__wrapper">
-          <div id="vector-map"></div>
-          <div class="vector-map__text">Наши спортсмены
-            <div class="skew-text"><span>успешно</span></div>
-            выступают в различных соревнованиях по всему миру
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="rocket-progress js-rocket-progress">
-      <div class="rocket-progress__line js-rocket-progress-line"></div>
-      <div class="rocket-progress__rocket"></div>
-    </div>
-  </section>
-  <!-- END about-us -->
 
-  <!-- BEGIN projects -->
-  <section class="projects" id="projects">
-    <div class="container projects__container">
-      <div class="rect rect-white" id="rect-white-1" aria-hidden="true"></div>
-      <div class="rect rect-red" id="rect-red-projects-1" aria-hidden="true"></div>
-      <div class="rect" id="rect-white-projects-1" aria-hidden="true"></div>
-      <div class="rect" id="rect-white-projects-2" aria-hidden="true"></div>
-      <h4 class="projects__title">
-        <div class="projects__title-word">Проекты</div>
-        <div class="projects__title-text">которыми мы гордимся. <br> но это еще не предел</div>
-      </h4>
-      <!-- BEGIN projects-slider -->
-      <div class="projects-slider swiper-container">
-        <!-- BEGIN swiper-slide -->
-        <div class="swiper-slide">
-          <div class="projects-slider__item">
-            <div class="projects-slider__image">
-              <div class="projects-slider__image-wrap">
-                <img src="img" alt="">
+  <!-- BEGIN mainpage-content -->
+  <div class="mainpage-content">
+    <div class="mainpage-content__wrapper">
+      <!-- BEGIN about-us -->
+      <section class="about-us" id="about-us">
+        <div class="container">
+          <div class="rect" id="rect-blue-1" aria-hidden="true"></div>
+          <div class="rect rect-white" id="rect-white-1" aria-hidden="true"></div>
+          <div class="rect" id="rect-blue-2" aria-hidden="true"></div>
+          <div class="rect" id="rect-blue-3" aria-hidden="true"></div>
+          <div class="rect rect-red" id="rect-red-1" aria-hidden="true"></div>
+          <div class="about-us__fighters" aria-hidden="true">
+            <img src="img/fighters-1.png" alt="fighters">
+          </div>
+          <div class="about-us__top">
+            <h2 class="section-title">О нас</h2>
+            <p class="about-us__subtitle">Gagarin Sports Management - это создание личного бренда спортсмена и развитие
+              его успешной спортивной деятельности. Gagarin Sports Management не только о спорте и бизнесе - это
+              идеология!</p>
+          </div>
+          <a href="#" class="button about-us__top-button">
+            <div class="button__wrapper">
+              <span class="text">Будь первым!</span>
+            </div>
+          </a>
+
+          <div class="map-wrapper">
+            <!-- BEGIN map -->
+            <div class="map">
+              <div class="map__markers">
+                <div class="map-marker map-marker--1">
+                  <div class="map-marker__text">США</div>
+                  <div class="icon icon-marker"></div>
+                </div>
+                <div class="map-marker map-marker--right map-marker--2">
+                  <div class="map-marker__text">Ирландия</div>
+                  <div class="icon icon-marker"></div>
+                </div>
+                <div class="map-marker map-marker--right map-marker--3">
+                  <div class="map-marker__text">Польша</div>
+                  <div class="icon icon-marker"></div>
+                </div>
+                <div class="map-marker map-marker--up map-marker--4">
+                  <div class="map-marker__text">Беларусь</div>
+                  <div class="icon icon-marker"></div>
+                </div>
+                <div class="map-marker map-marker--up map-marker--5">
+                  <div class="map-marker__text">Армения</div>
+                  <div class="icon icon-marker"></div>
+                </div>
+                <div class="map-marker map-marker--6">
+                  <div class="map-marker__text">Россия</div>
+                  <div class="icon icon-marker"></div>
+                </div>
+                <div class="map-marker map-marker--7">
+                  <div class="map-marker__text">Казахстан</div>
+                  <div class="icon icon-marker"></div>
+                </div>
+                <div class="map-marker map-marker--8">
+                  <div class="map-marker__text">Китай</div>
+                  <div class="icon icon-marker"></div>
+                </div>
+                <div class="map-marker map-marker--9">
+                  <div class="map-marker__text">Сингапур</div>
+                  <div class="icon icon-marker"></div>
+                </div>
+                <div class="map-marker map-marker--10">
+                  <div class="map-marker__text">Япония</div>
+                  <div class="icon icon-marker"></div>
+                </div>
               </div>
+            </div>
+            <!-- END map -->
+
+            <div class="map-text">Наши спортсмены
+              <div class="skew-text"><span>успешно</span></div>
+              выступают в различных соревнованиях по всему миру
             </div>
           </div>
         </div>
-        <!-- END swiper-slide -->
+        <div class="rocket-progress js-rocket-progress">
+          <div class="rocket-progress__line js-rocket-progress-line"></div>
+          <div class="icon icon-rocket"></div>
+        </div>
+      </section>
+      <!-- END about-us -->
+      <!-- BEGIN services -->
+      <section class="services" id="services">
+        <div class="container services__container">
+          <div class="rect rect-white" id="rect-services-white-1" aria-hidden="true"></div>
+          <div class="rect" id="rect-services-blue-1" aria-hidden="true"></div>
+          <div class="rect" id="rect-services-blue-2" aria-hidden="true"></div>
+          <div class="rect" id="rect-services-blue-3" aria-hidden="true"></div>
+          <h4 class="services__title">
+            <div class="services__title-word">Услуги</div>
+            <div class="services__title-text">по продвижению лучших <br>спортсменов к Олимпу</div>
+          </h4>
+          <div class="services-steps">
+            <!-- BEGIN service-step__col -->
+            <div class="services-steps__col services-steps__col--1">
+              <div class="service-step">
+                <div class="service-step__number">1</div>
+                <div class="service-step__content">
+                  <h4 class="service-step__title">Менеджмент</h4>
+                  <p class="service-step__text">Управление делами и продвижение спортсмена.</p>
+                </div>
+              </div>
+              <div class="service-step">
+                <div class="service-step__number">2</div>
+                <div class="service-step__content">
+                  <h4 class="service-step__title">PR</h4>
+                  <p class="service-step__text">Связи с общественностью, формирование
+                    и продвижение личного бренда
+                    спортсмена.</p>
+                </div>
+              </div>
+              <div class="service-step">
+                <div class="service-step__number">3</div>
+                <div class="service-step__content">
+                  <h4 class="service-step__title">Спортивное сопровождение</h4>
+                  <p class="service-step__text">Статистика. Рейтинги.</p>
+                </div>
+              </div>
+              <div class="service-step">
+                <div class="service-step__number">4</div>
+                <div class="service-step__content">
+                  <h4 class="service-step__title">Спонсорство</h4>
+                  <p class="service-step__text">Заключение соглашений между
+                    партнером и спортсменом.</p>
+                </div>
+              </div>
+            </div>
+            <!-- END service-step__col -->
+            <!-- BEGIN service-step__col -->
+            <div class="services-steps__col services-steps__col--2">
+              <div class="service-step">
+                <div class="service-step__number">5</div>
+                <div class="service-step__content">
+                  <h4 class="service-step__title">Бизнес</h4>
+                  <p class="service-step__text">Реализация совместных бизнес проектов, объединяя идеи, бизнес комьюнити
+                    и инвестиции.</p>
+                </div>
+              </div>
+              <div class="service-step">
+                <div class="service-step__number">6</div>
+                <div class="service-step__content">
+                  <h4 class="service-step__title">SMM</h4>
+                  <p class="service-step__text">Повышение вовлечённости интернет- аудитории к спортсмену, продвижение
+                    социальных сетей.</p>
+                </div>
+              </div>
+              <div class="service-step">
+                <div class="service-step__number">7</div>
+                <div class="service-step__content">
+                  <h4 class="service-step__title">Юридическое сопровождение</h4>
+                  <p class="service-step__text">Юридическая поддержка и помощь
+                    спортсмену.</p>
+                </div>
+              </div>
+              <div class="service-step">
+                <div class="service-step__number">8</div>
+                <div class="service-step__content">
+                  <h4 class="service-step__title">Продажа медиа-прав</h4>
+                  <p class="service-step__text">Мы реализуем продажу прав на вещание спортивных соревнований любого
+                    уровня.</p>
+                </div>
+              </div>
+            </div>
+            <!-- END service-step__col -->
+          </div>
+
+          <!-- BEGIN services__fighters -->
+          <div class="services__fighters" aria-hidden="true">
+            <img src="img/fighters-2.png" alt="fighters">
+          </div>
+          <!-- END services__fighters -->
+        </div>
+      </section>
+      <!-- END services -->
+      <!-- BEGIN projects -->
+      <section class="projects" id="projects">
+        <div class="container projects__container">
+          <div class="rect" id="rect-blue-projects-1" aria-hidden="true"></div>
+          <div class="rect rect-white" id="rect-white-projects-1" aria-hidden="true"></div>
+          <div class="rect rect-red" id="rect-red-projects-1" aria-hidden="true"></div>
+          <div class="rect" id="rect-blue-projects-2" aria-hidden="true"></div>
+          <div class="rect rect-red" id="rect-red-projects-2" aria-hidden="true"></div>
+          <div class="rect rect-white" id="rect-white-projects-2" aria-hidden="true"></div>
+          <h4 class="projects__title">
+            <div class="projects__title-word">Проекты</div>
+            <div class="projects__title-text">которыми мы гордимся. <br> но это еще не предел</div>
+          </h4>
+          <!-- BEGIN projects-slider -->
+          <div class="projects-slider swiper-container">
+            <div class="swiper-wrapper">
+              <!-- BEGIN swiper-slide -->
+              <div class="swiper-slide">
+                <div class="projects-slider__item">
+                  <div class="projects-slider__image">
+                    <a class="projects-slider__image-link" href="#">
+                      <img src="img/conor.jpg" alt="project">
+                    </a>
+                  </div>
+                  <div class="projects-slider__content">
+                    <a class="projects-slider__title-link" href="#">Организация первого визита Конора
+                      МакГрегора в Россию на официальную
+                      церемонию закрытия FIFA 2018</a>
+                  </div>
+                </div>
+              </div>
+              <!-- END swiper-slide -->
+              <!-- BEGIN swiper-slide -->
+              <div class="swiper-slide">
+                <div class="projects-slider__item">
+                  <div class="projects-slider__image">
+                    <a class="projects-slider__image-link" href="#">
+                      <img src="https://via.placeholder.com/600x500/" alt="project">
+                    </a>
+                  </div>
+                  <div class="projects-slider__content">
+                    <a class="projects-slider__title-link" href="#">Организация первого визита Конора
+                      МакГрегора в Россию на официальную
+                      церемонию закрытия FIFA 2018</a>
+                  </div>
+                </div>
+              </div>
+              <!-- END swiper-slide -->
+            </div>
+            <div class="projects-navigation">
+              <a class="projects-navigation__arrow projects-navigation__arrow--prev" role="button">
+                <div class="projects-navigation__arrow-wrap">
+                  <div class="icon icon-arrow-left"></div>
+                </div>
+              </a>
+              <a class="projects-navigation__arrow projects-navigation__arrow--next" role="button">
+                <div class="projects-navigation__arrow-wrap">
+                  <div class="icon icon-arrow-left"></div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- END projects-slider -->
+        </div>
+        <!-- END mainpage-content -->
+      </section>
+      <!-- END projects -->
+      <!-- BEGIN news -->
+      <section class="news">
+        <div class="container news__container">
+          <div class="rect" id="rect-news-blue-1" aria-hidden="true"></div>
+
+          <div class="news__top">
+            <h4 class="news__title">
+              <div class="news__title-word">Новости</div>
+              <div class="news__title-text">подписывайтесь, чтобы <br>следить за новостями</div>
+            </h4>
+            <a href="#" class="button button--small news__top-button">
+              <div class="button__wrapper">
+                <span class="text">@gagarin_sm</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- BEGIN news-slider -->
+        <div class="news-slider swiper-container">
+          <div class="swiper-wrapper">
+            <!-- BEGIN swiper-slide -->
+            <div class="swiper-slide">
+              <a class="news-slider__item" href="#">
+                <img src="img/news1.jpg" alt="Новости из инстаграма">
+              </a>
+            </div>
+            <!-- END swiper-slide -->
+            <!-- BEGIN swiper-slide -->
+            <div class="swiper-slide">
+              <a class="news-slider__item" href="#">
+                <img src="img/news2.jpg" alt="Новости из инстаграма">
+              </a>
+            </div>
+            <!-- END swiper-slide -->
+            <!-- BEGIN swiper-slide -->
+            <div class="swiper-slide">
+              <a class="news-slider__item" href="#">
+                <img src="img/news3.jpg" alt="Новости из инстаграма">
+              </a>
+            </div>
+            <!-- END swiper-slide -->
+            <!-- BEGIN swiper-slide -->
+            <div class="swiper-slide">
+              <a class="news-slider__item" href="#">
+                <img src="img/news4.jpg" alt="Новости из инстаграма">
+              </a>
+            </div>
+            <!-- END swiper-slide -->
+          </div>
+        </div>
+        <!-- END news-slider -->
+
+      </section>
+      <!-- END news -->
+    </div>
+  </div>
+
+  <!-- BEGIN contacts -->
+  <section class="contacts">
+    <div class="container">
+      <div class="rect rect-white" id="rect-contacts-white-1" aria-hidden="true"></div>
+      <div class="contacts__top">
+        <h3 class="section-title">Контакты</h3>
+        <ul class="contacts__list list-reset">
+          <li>
+            <div class="icon-wrap" aria-hidden="true">
+              <div class="icon icon-headset"></div>
+            </div>
+            <span class="text">+7 (800) 123-45-67</span>
+          </li>
+          <li>
+            <div class="icon-wrap" aria-hidden="true">
+              <div class="icon icon-mail"></div>
+            </div>
+            <span class="text">gagarinsport@gmail.com</span>
+          </li>
+          <li>
+            <div class="icon-wrap" aria-hidden="true">
+              <div class="icon icon-marker-2"></div>
+            </div>
+            <span class="text">Россия, Москва-Cити, Башня Федерация</span>
+          </li>
+        </ul>
       </div>
-      <!-- END projects-slider -->
+      <div class="contact-callback">
+        <h3 class="section-title">Остались вопросы?</h3>
+        <p>Мы вам перезвоним.</p>
+        <a href="#" class="button about-us__top-button">
+          <div class="button__wrapper">
+            <span class="text">оставить заявку</span>
+          </div>
+        </a>
+      </div>
+      <div class="contacts__fighter">
+        <img src="img/fighter.png" alt="Боец ММА">
+      </div>
     </div>
   </section>
-  <!-- END projects -->
+  <!-- END contacts -->
+
   {# footer #}
   {% include "partials/_footer.html" %}
+
+  {# popups #}
+  {% include "partials/_popups.html" %}
 
 {% endblock %}

@@ -429,11 +429,9 @@ var buildSprites = function (done) {
   var spriteData = src(paths.sprite.input).pipe(
     spritesmith({
       imgName: "icons.png",
-      retinaSrcFilter: ['src/img/icons/*@2x.png'],
       cssName: "_sprite.scss",
       padding: 10,
       imgPath: "../img/icons.png",
-      retinaImgName: 'sprite@2x.png'
     })
   );
 

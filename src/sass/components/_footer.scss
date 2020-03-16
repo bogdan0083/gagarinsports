@@ -1,0 +1,96 @@
+.footer {
+  text-align: center;
+  position: relative;
+  @include up('md') {
+    text-align: left;
+  }
+
+  .rocket-progress {
+    top: 0;
+    bottom: auto;
+    z-index: 10;
+  }
+
+  .container {
+    padding: 30px 15px;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    @include up('md') {
+      display: flex;
+    }
+    @include up('lg') {
+      padding: 70px 15px 50px;
+    }
+  }
+
+  &__nav {
+    display: none;
+    @include up('md') {
+      display: block;
+      max-width: 400px;
+    }
+    li {
+      font-size: 24px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin: 3px 30px 3px 0;
+    }
+  }
+
+  &__left {
+    @include up('lg') {
+      width: 470px;
+    }
+    @include up('xl') {
+      width: 570px;
+      padding-left: 80px;
+    }
+  }
+
+  &__right {
+    margin-top: 20px;
+    @include up('lg') {
+      width: 280px;
+      text-align: center;
+    }
+
+    @include up('xl') {
+      width: 390px;
+    }
+  }
+
+  &__left, &__right {
+    position: relative;
+    z-index: 20;
+  }
+
+  &__bottom {
+    @include up('md') {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+    @include up('lg') {
+      font-size: 18px;
+    }
+  }
+  .social-icons {
+    margin-bottom: 10px;
+    @include up('md') {
+      margin-top: 0;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.made-by {
+  a {
+    text-decoration: none;
+    color: $background-primary;
+    transition: all 0.3s;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
