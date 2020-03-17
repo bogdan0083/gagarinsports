@@ -82,6 +82,25 @@
       margin-bottom: 50px;
     }
   }
+  &--inner {
+    #rect-footer-red-1 {
+      height: 100%;
+      left: 460px;
+      @include up('lg') {
+        left: 550px;
+      }
+      @include up('xl') {
+        left: 640px;
+      }
+    }
+    #rect-footer-white-1 {
+      left: 680px;
+      height: 100%;
+      @include up('xl') {
+        left: 860px;
+      }
+    }
+  }
 }
 
 .made-by {

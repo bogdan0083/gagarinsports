@@ -1,0 +1,45 @@
+---
+title: 404
+---
+{% extends "layouts/_layout-inner.html" %}
+
+{% block content %}
+
+  {# data usage example #}
+  {% import "data/data.html" as data %}
+
+  {# mobile-menu #}
+  {% include "partials/_mobile-menu.html" %}
+
+  <div class="page-inner-wrapper">
+    {# header #}
+    {% include "partials/_header-inner.html" %}
+    <div class="layout layout--404">
+      <div class="breadcrumbs">
+        <div class="container">
+          <a href="#" class="item">Главная</a><span class="sep"></span><span class="item">Страница не найдена</span>
+        </div>
+      </div>
+      <div class="page-top">
+        <div class="container">
+          <h1 class="section-title">Страниц не найдена</h1>
+          <div class="page-top__desc">попробуйте начать поиск <br> с <a href="#" class="red-link">главной страницы</a>
+            сайта
+          </div>
+        </div>
+      </div>
+      <div class="page-content">
+        <div class="container">
+          <div class="text-404">404</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# footer #}
+  {% include "partials/_footer-inner.html" %}
+
+  {# popups #}
+  {% include "partials/_popups.html" %}
+
+{% endblock %}

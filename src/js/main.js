@@ -1,31 +1,49 @@
 $(function () {
 
   var promoSection = $(".js-promo");
+  var $scrolldownTrigger = $('.scrolldown-trigger');
+  var $aboutUsSection = $('.js-about-us');
+  var $aboutUsPageSection = $('.js-about-us-page');
+
   var $mobileNavTrigger = $('.mobile-nav-trigger');
   var mobileMenuIsVisible = false;
   var mobileMenuTimeline = new TimelineMax({paused: true});
-  var $scrolldownTrigger = $('.scrolldown-trigger');
-  var $aboutUsSection = $('#about-us');
+
+  var callbackPopupTimeline = new TimelineMax({paused: true});
+  var $callbackPopupTrigger = $('.js-callback-popup-trigger');
+  var callbackPopupIsVisible = false;
+
   var controller = new ScrollMagic.Controller();
 
   // Инициализация всех слайдеров
   initSliders();
 
   // Анимация футера
-  animateFooter();
+  animateFooterOnScroll();
 
-  if (promoSection.length > 0) { // Запускаем анимацию на главной
+  // Запускаем анимацию на главной
+  if (promoSection.length > 0) {
     animatePromoSection();
     initPromoScrollScene();
   }
 
-  if ($scrolldownTrigger.length > 0) { // Анимация мышки на главной странице
+  // Анимация мышки на главной странице
+  if ($scrolldownTrigger.length > 0) {
     animateScrolldownTrigger();
   }
 
-  if ($aboutUsSection) { // Анимация секции "О нас" на главной
+  // Анимация секции "О нас" на главной
+  if ($aboutUsSection.length > 0) {
     animateAboutSection();
   }
+
+  // Анимация секции "О нас" на отдельной странице
+  if ($aboutUsPageSection.length > 0) {
+    animateAboutPageSection();
+  }
+
+  // Инициализация скролла
+  initScrollTo();
 
   // Вешаем обработчик на мобильное меню
   // И подготавливаем для него анимацию
@@ -39,6 +57,20 @@ $(function () {
     $mobileNavTrigger.on('click', onMobileNavTriggerClick);
   }
 
+  // Вешаем обработчик на попап "Обратный звонок"
+  // И подготавливаем для него анимацию
+  if ($callbackPopupTrigger.length > 0) {
+
+    callbackPopupTimeline
+      .set(".popup-callback", { display: 'block'})
+      .fromTo('.popup__overlay', 0.3, {xPercent: 100}, {xPercent: 0})
+      .fromTo('.popup__skew', 0.3, {xPercent: 100}, {xPercent: 0}, "-=0.2")
+      .staggerFromTo('.popup__title, .form-row', 0.3, {x: 30, opacity: 0}, {x: 0, opacity: 1}, 0.1);
+      // .fromTo('.mobile-menu .social-icons', 0.2, {y: 30, opacity: 0}, {y: 0, opacity: 1});
+
+    $callbackPopupTrigger.on('click', onCallbackPopupTriggerClick);
+  }
+
   function onMobileNavTriggerClick(e) {
     e.preventDefault();
     $(this).toggleClass('active');
@@ -50,9 +82,26 @@ $(function () {
       mobileMenuTimeline.play();
       mobileMenuIsVisible = true;
     }
-
   }
 
+  function onCallbackPopupTriggerClick(e) {
+    e.preventDefault();
+
+    if (callbackPopupIsVisible) {
+      callbackPopupTimeline.reverse(null, true);
+      callbackPopupIsVisible = false;
+    } else {
+      callbackPopupTimeline.play();
+      callbackPopupIsVisible = true;
+    }
+
+    $('.js-callback-popup-close').on('click', onCallbackPopupTriggerClick);
+    $('.popup__overlay').on('click', function() {
+      callbackPopupTimeline.reverse(null, true);
+      callbackPopupIsVisible = false;
+    });
+
+  }
   function animateScrolldownTrigger() {
     var tl = new TimelineMax({repeat: -1, repeatDelay: 3});
 
@@ -73,10 +122,10 @@ $(function () {
 
     tl
       .staggerFromTo('#promo-logo-group path', 1, {opacity: 0, scale: 0.7}, {opacity: 1, scale: 1}, 0.1)
-      .fromTo('#promo-logo-linear-gradient',
+      .fromTo('#promo-logo-linear-gradient, #header-logo-linear-gradient',
         4,
         {attr: {gradientTransform: 'translate(-1,1)'}},
-        {attr: {gradientTransform: 'translate(3,1)'}}, '-=1')
+        {attr: {gradientTransform: 'translate(3,1)'}, repeat: -1, repeatDelay: 4}, '-=1')
       .fromTo('.header--primary', 0.3, {opacity: 0}, {opacity: 1}, '-=3')
       .fromTo('.promo__bottom', 0.3, {opacity: 0}, {opacity: 1}, '-=3');
 
@@ -121,6 +170,21 @@ $(function () {
       .addTo(controller);
   }
 
+  function animateAboutPageSection() {
+
+    var tl = new TimelineMax();
+
+    tl.fromTo('.js-rocket-progress-about-us-page', 2, {xPercent: 100}, {xPercent: 0});
+
+    var secondPromoScene = new ScrollMagic.Scene({
+      triggerElement: '.page-about-us-text',
+      triggerHook: 1,
+      duration: 0
+    })
+      .setTween(tl)
+      .addTo(controller);
+  }
+
   function initSliders() {
 
     // Слайдер проектов
@@ -153,7 +217,7 @@ $(function () {
     });
   }
 
-  function animateFooter() {
+  function animateFooterOnScroll() {
     var tl = new TimelineMax();
 
     tl.fromTo('.js-rocket-progress-footer', 1, {xPercent: -100}, {xPercent: 0});
@@ -165,5 +229,14 @@ $(function () {
     })
       .setTween(tl)
       .addTo(controller);
+  }
+
+  function initScrollTo() {
+    $("[href^='#scroll']").on('click', function (e) {
+      e.preventDefault();
+      var sectionToScroll = $(this).attr('href');
+      console.log(sectionToScroll);
+      TweenMax.to(window, 2, {scrollTo: sectionToScroll});
+    });
   }
 });

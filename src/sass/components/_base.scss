@@ -43,14 +43,26 @@
   }
 }
 
+html, body {
+  height: 100%;
+}
+
 /* Base styles start */
 body {
   background: white url('../img/main-bg.jpg');
   color: #000;
   font-family: $ff;
   min-width: 320px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.4;
+  &.body-page-inner {
+    .page-inner-wrapper {
+      flex: 1 0 auto;
+    }
+    .footer {
+      flex-shrink: 0;
+    }
+  }
   @include up('md') {
     font-size: 16px;
   }
@@ -151,6 +163,20 @@ img {
   }
 }
 
+.popup-close {
+  display: block;
+  cursor: pointer;
+  transition: all 0.4s;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  .burger {
+    @include burger(30px, 3px, 8px, white);
+    @include burger-to-cross();
+  }
+}
+
 .list-reset {
   list-style: none;
   padding: 0;
@@ -217,6 +243,9 @@ img {
     line-height: 34px;
     padding-left: 10px;
     padding-right: 10px;
+  }
+  &--full {
+    width: 100%;
   }
 }
 
@@ -453,6 +482,9 @@ img {
 .breadcrumbs {
   font-size: 14px;
   margin-bottom: 34px;
+  @include up('md') {
+    margin-bottom: 37px;
+  }
 
   a {
     text-decoration: none;
@@ -527,112 +559,52 @@ img {
   }
 }
 
-.popup {
-  width: 285px;
-  z-index: 115;
-  margin: auto;
-  text-align: center;
-  display: none;
-
-  .fancybox-button {
-    display: none;
-  }
-
-  &.fancybox-content {
-    padding: 0;
-  }
-
-  &-heading {
-    font-size: 20px;
-    margin-top: 0;
-    @include up('md') {
-      font-size: 28px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  .wrapper {
-    position: relative;
-    background-color: $white;
-    border: 1px solid $gray-secondary;
-    padding: 40px 20px 20px;
-    height: 100%;
-    @include up('md') {
-      padding-top: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  .button {
-    width: 100%;
-    margin-top: 20px;
-    display: block;
-  }
-
-  .input-item {
-    width: 100%;
-    @include up('md') {
-      width: 300px;
-    }
-  }
-
-  @include up('md') {
-    width: 540px;
-    height: 380px;
-  }
-}
-
-.checkbox {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  transition: all 0.4s;
+.form-checkbox > span {
+  font-size: 18px;
+  color: white;
+  position: relative;
+  padding: 0 0 0 30px;
+  display: inline-block;
+  line-height: 1.4;
   cursor: pointer;
-
-  &:hover {
-    opacity: 0.7;
-  }
-
-  .text {
-    font-size: 14px;
-    order: -1;
-  }
-
-  .icon {
-    flex: 0 0 20px;
-    width: 20px;
-    height: 20px;
-    border: 1px solid $gray-secondary;
-    border-radius: 4px;
-    margin-left: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    svg {
-      transition: all 0.4s;
-      width: 12px;
-      height: 12px;
-      opacity: 0;
-    }
-  }
-
-  input {
-    display: none;
-
-    &:checked {
-      + .icon svg {
-        opacity: 1;
-      }
-    }
-  }
 }
+
+.form-checkbox > span:before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 0;
+  top: 50%;
+  margin-top: -6px;
+  background: linear-gradient(to bottom, white 70%, #d9d7da 100%);
+}
+
+.form-checkbox > span:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  @include sprite($check)
+  display: none;
+}
+
+.form-checkbox__input {
+  display: none;
+}
+
+.form-checkbox__input:checked + span:after {
+  display: block;
+}
+
+.form-checkbox a {
+  color: white;
+}
+
+.form-checkbox a:hover {
+  text-decoration: none;
+}
+
 
 .range-inputs {
   display: flex;
@@ -738,9 +710,10 @@ img {
 
 .map-text {
   margin-top: 40px;
+  font-size: 20px;
   max-width: 300px;
   .skew-text {
-    margin-top: -5px;
+    margin-top: -10px;
     @include up('md') {
       margin-top: -11px;
     }
@@ -790,6 +763,17 @@ img {
     position: absolute;
     right: 0;
     top: -8px;
+  }
+  &--backwards {
+    .rocket-progress__line {
+      left: auto;
+      right: 0;
+    }
+    .icon-rocket {
+      right: auto;
+      left: 0;
+      transform: scaleX(-1);
+    }
   }
 }
 
@@ -1075,34 +1059,108 @@ img {
     width: 375px;
   }
 }
+
+#rect-about-us-page-blue-1 {
+  width: 55px;
+  left: calc(100% + 54px);
+  bottom: 0;
+  top: -300px;
+  height: 600px;
+  z-index: 1;
+  display: none;
+  @include up('lg') {
+    display: block;
+  }
+  //@include up('lg') {
+  //  left: 750px;
+  //}
+  //@include up('xl') {
+  //  left: 840px;
+  //}
+}
+
+#rect-about-us-page-blue-2 {
+  width: 25px;
+  left: calc(100% - 478px);
+  bottom: 0;
+  top: -300px;
+  height: 5000px;
+  z-index: 1;
+  display: none;
+  @include up('lg') {
+    display: block;
+  }
+  //@include up('lg') {
+  //  left: 750px;
+  //}
+  //@include up('xl') {
+  //  left: 840px;
+  //}
+}
+#rect-about-us-page-red-1 {
+  width: 30px;
+  left: calc(100% - 330px);
+  bottom: 0;
+  top: -300px;
+  height: 5000px;
+  z-index: 1;
+  display: none;
+  @include up('lg') {
+    display: block;
+  }
+  //@include up('lg') {
+  //  left: 750px;
+  //}
+  //@include up('xl') {
+  //  left: 840px;
+  //}
+}
 /* forms */
 
 .form-row {
-  margin-bottom: 20px;
+  margin-bottom: 26px;
+  &--captcha {
+    height: 70px;
+    background-color: rgba(white, 0.2);
+  }
 }
 
-.form-row-error {
-  .form-row-field {
+.form-row--error {
+  .form-row__field {
     border-color: darkred;
   }
 
-  .form-row-label {
+  .form-row--label {
     color: darkred;
   }
 
-  .form-row-caption {
+  .form-row--caption {
     color: darkred;
   }
 }
 
-.form-row-field {
+// @TODO: add inputmask.js for phone field
+
+.form-row__input, .form-row__textarea {
   width: 100%;
-  height: 40px;
+  height: 45px;
+  font-size: 19px;
   color: black;
-  background: linear-gradient(to bottom, white, gray);
-  padding-left: 20px;
-  padding-right: 20px;
+  background: linear-gradient(to bottom, white 60%, #d7d7d7 100%);
+  padding-left: 25px;
+  padding-right: 25px;
+  border: none;
   box-shadow: none;
   outline: 0;
+  &::placeholder {
+    color: #3b3b3b;
+  }
+}
+
+.form-row__textarea {
+  height: 112px;
+  resize: none;
+  padding-top: 13px;
+  padding-bottom: 20px;
 }
 

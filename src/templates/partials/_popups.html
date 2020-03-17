@@ -1,36 +1,47 @@
-<!-- BEGIN popup popup-contact -->
-<div class="popup popup-contact">
-  <div class="popup-overlay" aria-hidden="true"></div>
-  <div class="popup__content">
-    <div class="popup__content-inner">
-      <h3 class="popup__title"></h3>
-      <form action="action.php" class="popup__form">
-        <div class="form-row">
-          <input type="text" name="user_name" class="form-row__input" placeholder="">
+<!-- BEGIN popup popup-callback -->
+<div class="popup popup-callback">
+  <div class="popup__inner">
+    <a href="#" class="popup-close js-callback-popup-close">
+      <span class="burger"></span>
+    </a>
+    <div class="popup__overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="popup__skew" aria-hidden="true"></div>
+      <div class="popup__content">
+        <div class="popup__content-inner">
+          <h3 class="popup__title">Обратный звонок</h3>
+          <form action="action.php" class="popup__form">
+            <div class="form-row">
+              <input type="text" name="user_name" class="form-row__input" placeholder="Ваше имя">
+            </div>
+            <div class="form-row">
+              <input type="text" name="user_phone" class="form-row__input" placeholder="Ваш телефон">
+            </div>
+            <div class="form-row">
+              <input type="text" name="user_mail" class="form-row__input" placeholder="Ваш email">
+            </div>
+            <div class="form-row form-row--textarea">
+              <textarea type="text" name="user_text" class="form-row__textarea" placeholder="Комментарий"></textarea>
+            </div>
+            <div class="form-row">
+              <label class="form-checkbox">
+                <input type="checkbox" class="form-checkbox__input"><span>согласие с <a href="">политикой конфиденциальности</a></span>
+              </label>
+            </div>
+            <div class="form-row form-row--captcha">
+            </div>
+            <div class="form-row">
+              <a href="#" class="button button--full">
+                <div class="button__wrapper">
+                  <span class="text">Отправить заявку</span>
+                </div>
+              </a>
+            </div>
+          </form>
         </div>
-        <div class="form-row">
-          <input type="text" name="user_phone" class="form-row__input" placeholder="">
-        </div>
-        <div class="form-row">
-          <input type="text" name="user_mail" class="form-row__input" placeholder="">
-        </div>
-        <div class="form-row form-row--textarea">
-          <textarea type="text" name="user_text" class="form-row__textarea" placeholder=""></textarea>
-        </div>
-        <div class="form-row">
-          <label class="form-checkbox">
-            <input type="checkbox" class="form-checkbox__input"><span>Я согласен с <a href="">условиями обработки персональных данных</a></span>
-          </label>
-        </div>
-        <div class="form-row form-row--captcha">
-        </div>
-        <a href="#" class="button button--full">
-          <div class="button__wrapper">
-            <span class="text">Отправить заявку</span>
-          </div>
-        </a>
-      </form>
+      </div>
     </div>
   </div>
+
 </div>
-<!-- END popup popup-contact -->
+<!-- END popup popup-callback -->

@@ -3,7 +3,6 @@ title: Главная страница
 ---
 {% extends "layouts/_layout.html" %}
 
-
 {% block content %}
 
   {# data usage example #}
@@ -266,7 +265,7 @@ title: Главная страница
           </div>
           <!-- END social-icons -->
           <!-- BEGIN scrolldown-trigger -->
-          <a class="scrolldown-trigger icon icon-mouse" href="#about-us" role="button">
+          <a class="scrolldown-trigger icon icon-mouse" href="#scroll-about-us" role="button">
           </a>
           <!-- END scrolldown-trigger -->
         </div>
@@ -279,7 +278,7 @@ title: Главная страница
   <div class="mainpage-content">
     <div class="mainpage-content__wrapper">
       <!-- BEGIN about-us -->
-      <section class="about-us" id="about-us">
+      <section class="about-us js-about-us" id="scroll-about-us">
         <div class="container">
           <div class="rect" id="rect-blue-1" aria-hidden="true"></div>
           <div class="rect rect-white" id="rect-white-1" aria-hidden="true"></div>
@@ -362,7 +361,7 @@ title: Главная страница
       </section>
       <!-- END about-us -->
       <!-- BEGIN services -->
-      <section class="services" id="services">
+      <section class="services" id="scroll-services">
         <div class="container services__container">
           <div class="rect rect-white" id="rect-services-white-1" aria-hidden="true"></div>
           <div class="rect" id="rect-services-blue-1" aria-hidden="true"></div>
@@ -522,7 +521,7 @@ title: Главная страница
       </section>
       <!-- END projects -->
       <!-- BEGIN news -->
-      <section class="news">
+      <section class="news" id="scroll-news">
         <div class="container news__container">
           <div class="rect" id="rect-news-blue-1" aria-hidden="true"></div>
 
@@ -590,6 +589,7 @@ title: Главная страница
             <div class="icon-wrap" aria-hidden="true">
               <div class="icon icon-headset"></div>
             </div>
+
             <span class="text">+7 (800) 123-45-67</span>
           </li>
           <li>
@@ -609,7 +609,7 @@ title: Главная страница
       <div class="contact-callback">
         <h3 class="section-title">Остались вопросы?</h3>
         <p>Мы вам перезвоним.</p>
-        <a href="#" class="button about-us__top-button">
+        <a href="#" class="button about-us__top-button js-callback-popup-trigger">
           <div class="button__wrapper">
             <span class="text">оставить заявку</span>
           </div>
@@ -619,8 +619,10 @@ title: Главная страница
         <img src="img/fighter.png" alt="Боец ММА">
       </div>
     </div>
-  </section>
+
   <!-- END contacts -->
+
+
 
   {# footer #}
   {% include "partials/_footer.html" %}
