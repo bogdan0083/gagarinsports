@@ -15,6 +15,8 @@ $(function () {
 
   var controller = new ScrollMagic.Controller();
 
+  var $partnersPage = $('.page-content-partners');
+
   // Инициализация всех слайдеров
   initSliders();
 
@@ -44,6 +46,11 @@ $(function () {
 
   // Инициализация скролла
   initScrollTo();
+
+  // Инициализация слайдеров на странице "Партнеры"
+  if ($partnersPage.length > 0) {
+    initPartnerSliders();
+  }
 
   // Вешаем обработчик на мобильное меню
   // И подготавливаем для него анимацию
@@ -237,6 +244,88 @@ $(function () {
       var sectionToScroll = $(this).attr('href');
       console.log(sectionToScroll);
       TweenMax.to(window, 2, {scrollTo: sectionToScroll});
+    });
+  }
+
+  function initPartnerSliders() {
+    var promotersSwiper = new Swiper('.promoters-slider', {
+      slidesPerView: 1,
+      watchOverflow: true,
+      watchSlidesVisibility: true,
+      autoplay: true,
+      navigation: {
+        prevEl: '.partners--promoters .slider-arrow--prev',
+        nextEl: '.partners--promoters .slider-arrow--next',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1000: {
+          slidesPerView: 3,
+          slidesPerColumn: 2,
+          slidesPerColumnFill: 'row',
+          spaceBetween: 30,
+        },
+        1170: {
+          slidesPerView: 4,
+          slidesPerColumn: 2,
+          slidesPerColumnFill: 'row',
+          spaceBetween: 30,
+        },
+      },
+    });
+
+    var commercialSwiper = new Swiper('.commercial-slider', {
+      slidesPerView: 1,
+      watchOverflow: true,
+      watchSlidesVisibility: true,
+      autoplay: true,
+      navigation: {
+        prevEl: '.partners--commercial .slider-arrow--prev',
+        nextEl: '.partners--commercial .slider-arrow--next',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1000: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1170: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+      },
+    });
+
+
+    var infoPartnersSlider = new Swiper('.info-partners-slider', {
+      slidesPerView: 1,
+      watchOverflow: true,
+      watchSlidesVisibility: true,
+      autoplay: true,
+      navigation: {
+        prevEl: '.partners--info .slider-arrow--prev',
+        nextEl: '.partners--info .slider-arrow--next',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1000: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1170: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+      },
     });
   }
 });
