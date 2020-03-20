@@ -1,0 +1,63 @@
+---
+title: 404
+---
+{% extends "layouts/_layout-inner.html" %}
+
+{% block content %}
+
+  {# data usage example #}
+  {% import "data/data.html" as data %}
+
+  {# mobile-menu #}
+  {% include "partials/_mobile-menu.html" %}
+
+  <div class="page-inner-wrapper">
+    {# header #}
+    {% include "partials/_header-inner.html" %}
+    <div class="layout layout--post">
+      <div class="breadcrumbs">
+        <div class="container">
+          <a href="#" class="item">Главная</a><span class="sep"></span><span class="item">Пример страницы</span>
+        </div>
+      </div>
+      <div class="page-content">
+        <article class="post">
+          <div class="container">
+            <!-- BEGIN post-header -->
+            <header class="post__header">
+              <h1 class="section-title">Пример страницы</h1>
+            </header>
+            <!-- END post-header -->
+            <!-- BEGIN post-content -->
+            <div class="post__content">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eum exercitationem fugit neque, non numquam officia quaerat! Fuga, odit, rerum. Architecto assumenda atque consequatur ducimus explicabo, laboriosam modi obcaecati suscipit.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error magnam necessitatibus optio perferendis, provident quas sapiente. Ad nemo nihil nobis, pariatur velit vero voluptas voluptatibus? Corporis cupiditate officiis sapiente veniam.</p>
+              <a href="#" class="button about-us__top-button">
+                <div class="button__wrapper">
+                  <span class="text">ссылка</span>
+                </div>
+              </a>
+              <h2>Второй заголовок</h2>
+              Перечесление пунктов списка:
+              <ul>
+                <li>Пункт первый</li>
+                <li>Пункт второй</li>
+                <li>Пункт третий</li>
+              </ul>
+              <h3 class="color-primary">Третий заголовок</h3>
+              <h4 class="color-secondary">Четвертый заголовок</h4>
+            </div>
+            <!-- END post-content -->
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  {# footer #}
+  {% include "partials/_footer-inner.html" %}
+
+  {# popups #}
+  {% include "partials/_popups.html" %}
+
+{% endblock %}

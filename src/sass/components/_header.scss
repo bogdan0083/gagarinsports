@@ -102,14 +102,15 @@
 
   &--inner {
     @include up('md') {
-      height: 122px;
+      height: 116px;
+      background: #fff url('../img/header-bg.jpg') no-repeat center/cover;
     }
     .header__logo {
       @include up('md') {
         width: 280px;
         padding-left: 50px;
         padding-right: 50px;
-        margin-left: -2%;
+        margin-left: 15px;
       }
       @include up('lg') {
         box-sizing: content-box;
@@ -132,15 +133,16 @@
         }
       }
       @include up('xl') {
-        padding-left: 150px;
-        padding-right: 150px;
+        padding-left: 130px;
+        padding-right: 130px;
+        margin-left: 20px;
         &:before {
           width: 68px;
-          left: 60px;
+          left: 30px;
         }
         &:after {
           width: 68px;
-          right: 62px;
+          right: 42px;
         }
       }
     }
