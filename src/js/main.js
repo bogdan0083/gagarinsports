@@ -182,7 +182,8 @@ $(function () {
     var tl = new TimelineMax();
 
     tl
-      .staggerFromTo('#promo-logo-group path', 1, {opacity: 0, scale: 0.7}, {opacity: 1, scale: 1}, 0.1)
+    // .fromTo('.promo__logo', 2, {opacity: 0, y: 500}, {opacity: 1, y: 0})
+      .fromTo('.promo__logo', 1, {opacity: 0}, {opacity: 1})
       .fromTo('#promo-logo-linear-gradient, #header-logo-linear-gradient',
         4,
         {attr: {gradientTransform: 'translate(-1,1)'}},
@@ -230,11 +231,10 @@ $(function () {
       .fromTo('.about-us__line', 1, {
         opacity: 0,
         height: 0,
-      }, {height: '95%', opacity: 1}, '-=0.2')
-      .fromTo('.about-us__fighters', 1, {
-        opacity: 0,
-        x: 100,
-      }, {x: 0, opacity: 1})
+      }, {height: 300, opacity: 1}, '-=0.2')
+      // .fromTo('.about-us__fighters', 1, {
+      //   y: 100,
+      // }, {y: 0})
       .staggerFromTo('.about-us .map-marker', 1, {
         opacity: 0,
         y: 50,
@@ -254,8 +254,11 @@ $(function () {
 
     // Анимация ракеты
     var rocketTimeline = new TimelineMax();
+    var containerWidth = 1170;
 
-    rocketTimeline.fromTo('.js-rocket-progress', 2, {xPercent: -100}, {xPercent: 0});
+    var diff = windowWidth - containerWidth;
+
+    rocketTimeline.fromTo('.js-rocket-progress', 2, {xPercent: -100}, {x: containerWidth + (diff / 2) + 90});
 
     var secondPromoScene = new ScrollMagic.Scene({
       triggerElement: '#scroll-services',
@@ -272,26 +275,23 @@ $(function () {
     var tl = new TimelineMax();
 
     tl
-      .staggerFromTo('.services__title-word, .services__title-text', 1, {
+      .staggerFromTo('.services__title-word, .services__title-text', 0.3, {
         x: 100,
         opacity: 0
-      }, {x: 0, opacity: 1}, 0.7)
-      .staggerFromTo('.service-step', 0.3, {
+      }, {x: 0, opacity: 1}, 0.2)
+      .staggerFromTo('#rect-services-blue-1,#rect-services-blue-2,#rect-services-blue-3', 0.3, {
         x: 100,
         opacity: 0
-      }, {x: 0, opacity: 1}, 0.3)
-      .fromTo('.services-steps__line', 2.4, {
-        height: 0,
+      }, {x: 0, opacity: 1}, 0.1, "-=0.1")
+      .fromTo('.services-steps__col--1', 0.3, {
+        x: -100,
         opacity: 0
-      }, {height: '90%', opacity: 1}, "-=2.4")
-      .staggerFromTo('#rect-services-blue-1,#rect-services-blue-2,#rect-services-blue-3', 0.6, {
+      }, {x: 0, opacity: 1})
+      .fromTo('.services-steps__col--2', 0.3, {
         x: 100,
         opacity: 0
-      }, {x: 0, opacity: 1}, 0.3)
-      .staggerFromTo('.services__fighters', 0.3, {
-        x: 100,
-        opacity: 0
-      }, {x: 0, opacity: 1}, 0.3);
+      }, {x: 0, opacity: 1});
+
     var aboutScene = new ScrollMagic.Scene({
       triggerElement: '.js-services',
       triggerHook: 0.6,
@@ -311,21 +311,21 @@ $(function () {
     });
 
     tl
-      .fromTo('#projects', 1, {opacity: 0}, {opacity: 1})
-      .staggerFromTo('.projects__title-word, .projects__title-text', 1, {
+      .fromTo('#projects', 0.6, {opacity: 0}, {opacity: 1})
+      .staggerFromTo('.projects__title-word, .projects__title-text', 0.3, {
         x: 100,
         opacity: 0
-      }, {x: 0, opacity: 1}, 1)
+      }, {x: 0, opacity: 1}, 0.3)
       .staggerFromTo('#rect-blue-projects-1, #rect-white-projects-1, #rect-red-projects-1, #rect-blue-projects-2, #rect-red-projects-2, #rect-white-projects-2, #rect-news-blue-1', 0.3, {
         x: 100,
         opacity: 0
-      }, {x: 0, opacity: 1}, 0.2)
-      .fromTo('.projects-slider', 1, {opacity: 0}, {opacity: 1})
-      .fromTo('.projects-navigation', 1, {opacity: 0}, {opacity: 1});
+      }, {x: 0, opacity: 1}, 0.1)
+      .fromTo('.projects-slider', 0.3, {opacity: 0}, {opacity: 1})
+      .fromTo('.projects-navigation', 0.3, {opacity: 0}, {opacity: 1});
 
     var projects = new ScrollMagic.Scene({
       triggerElement: '#projects',
-      triggerHook: 0.8,
+      triggerHook: 0.6,
       duration: 0,
       reverse: false,
     })
@@ -338,14 +338,13 @@ $(function () {
     var tl = new TimelineMax();
 
     tl
-      .staggerFromTo('.news__title-word, .news__title-text, .news__button-wrap', 1, {
+      .staggerFromTo('.news__title-word, .news__title-text, .news__button-wrap', 0.3, {
         x: 100,
         opacity: 0
-      }, {x: 0, opacity: 1}, 1)
-      .staggerFromTo('.news .swiper-slide-visible', 1, {
-        y: 40,
+      }, {x: 0, opacity: 1}, 0.2)
+      .staggerFromTo('.news .swiper-slide-visible', 0.3, {
         opacity: 0
-      }, {y: 0, opacity: 1}, 0.2);
+      }, {opacity: 1}, 0.1);
 
     var news = new ScrollMagic.Scene({
       triggerElement: '#scroll-news',
@@ -362,29 +361,25 @@ $(function () {
     var tl = new TimelineMax();
 
     tl
-      .staggerFromTo('#rect-contacts-white-1, #rect-footer-red-1, #rect-footer-blue-1, #rect-footer-white-1, .contacts__fighter', 0.3, {
+      .staggerFromTo('#rect-contacts-white-1, #rect-footer-red-1, #rect-footer-blue-1, #rect-footer-white-1', 0.3, {
         x: 30,
         opacity: 0
-      }, {x: 0, opacity: 1}, 0.3)
-      .fromTo('.contacts__line', 1, {
+      }, {x: 0, opacity: 1}, 0.2)
+      .fromTo('.contacts__line', 0.3, {
         height: 0,
         opacity: 0
       }, {height: 212, opacity: 1})
-      .fromTo('.contacts__top .section-title', 1, {
+      .fromTo('.contacts__top .section-title', 0.3, {
         x: 30,
         opacity: 0
-      }, {x: 0, opacity: 1})
+      }, {x: 0, opacity: 1}, "-=0.1")
       .staggerFromTo('.contacts__list li', 0.3, {
         x: 30,
         opacity: 0
-      }, {x: 0, opacity: 1}, 0.3)
-      .fromTo('.contact-callback', 1, {
+      }, {x: 0, opacity: 1}, 0.1)
+      .fromTo('.contact-callback', 0.3, {
         opacity: 0
       }, {opacity: 1});
-    // .staggerFromTo('.news .swiper-slide-visible', 1, {
-    //   y: 40,
-    //   opacity: 0
-    // }, {y: 0, opacity: 1}, 0.2);
 
     var contacts = new ScrollMagic.Scene({
       triggerElement: '.js-contacts',
@@ -416,7 +411,7 @@ $(function () {
     // Слайдер проектов
     projectsSwiper = new Swiper('.projects-slider', {
       spaceBetween: 200,
-      speed: 1000,
+      speed: 600,
       // loop: true,
       // loopAdditionalSlides: true,
       watchSlidesVisibility: true,
@@ -437,7 +432,7 @@ $(function () {
     // Слайдер новостей
     var newsSwiper = new Swiper('.news-slider', {
       spaceBetween: 1,
-      slidesPerView: 3,
+      slidesPerView: 4,
       watchSlidesVisibility: true,
       loop: true,
       breakpoints: {
@@ -446,7 +441,7 @@ $(function () {
           slidesPerView: 2,
         },
         768: {
-          slidesPerView: 3,
+          slidesPerView: 4,
         },
         1500: {
           slidesPerView: 4,
@@ -512,7 +507,10 @@ $(function () {
       slidesPerView: 1,
       watchOverflow: true,
       watchSlidesVisibility: true,
-      autoplay: true,
+      speed: 1000,
+      autoplay: {
+        delay: 3000,
+      },
       navigation: {
         prevEl: '.partners--commercial .slider-arrow--prev',
         nextEl: '.partners--commercial .slider-arrow--next',
@@ -537,7 +535,10 @@ $(function () {
       slidesPerView: 1,
       watchOverflow: true,
       watchSlidesVisibility: true,
-      autoplay: true,
+      speed: 800,
+      autoplay: {
+        delay: 5000,
+      },
       navigation: {
         prevEl: '.partners--info .slider-arrow--prev',
         nextEl: '.partners--info .slider-arrow--next',
@@ -570,13 +571,13 @@ $(function () {
   }
 
   function animateInnerPageLines() {
-    var tl = new TimelineMax();
+    var tl = new TimelineMax({ repeat: -1 });
 
     var $rects = $('.rect');
 
     if ($rects.length > 0) {
-      tl
-        .staggerFromTo($rects, 0.3, {opacity: 0}, {opacity: 1}, 0.3);
+      TweenMax.fromTo(".page-content .rect:not(.rect-red)", 2, {backgroundImage: "linear-gradient(135deg, #0375e7, #022a8a)"}, {backgroundImage: "linear-gradient(135deg, #022a8a, #0375e7)", repeat: -1, yoyo: true});
+      TweenMax.fromTo(".page-content .rect-red", 2, {backgroundImage: "linear-gradient(135deg, #d21300, #f8171f)"}, {backgroundImage: "linear-gradient(135deg, #f8171f, #d21300)", repeat: -1, yoyo: true});
     }
 
   }

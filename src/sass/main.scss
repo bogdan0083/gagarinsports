@@ -4,14 +4,16 @@
 @import 'functions.scss';
 // Normalize.css
 @import '~normalize.css/normalize';
+
 // variables
 @import 'variables.scss';
 
 // external libraries
 // @import '~bootstrap/scss/bootstrap-grid.scss';
-@import '~aos/dist/aos';
+//@import '~aos/dist/aos';
 @import '~swiper/swiper.scss';
-@import '~@fancyapps/fancybox/src/css/core';
+//@import '~swiper/components/lazy/lazy.scss';
+//@import '~@fancyapps/fancybox/src/css/core';
 @import '~bootstrap/scss/mixins/breakpoints.scss';
 @import '~bootstrap/scss/mixins.scss';
 @import '~bootstrap/scss/functions.scss';

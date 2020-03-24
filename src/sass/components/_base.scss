@@ -205,7 +205,7 @@ img {
   overflow: hidden;
   position: relative;
   transform: skew(-15deg, 0);
-  box-shadow: 0 0 7px 3px rgba(black, 0.1);
+  box-shadow: 0 0 7px 3px rgba(black, 0.2);
 
   &__wrapper {
     transform: skew(15deg, 0);
@@ -298,131 +298,6 @@ img {
   }
 }
 
-.swiper-pagination-bullets {
-  bottom: 20px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
-
-  .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background-color: #cecece;
-    padding: 0;
-    border-radius: 50%;
-    margin: 0 10px;
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-
-    &:hover {
-      background-color: $primary;
-    }
-
-    &-active:after {
-      opacity: 1;
-    }
-
-    &-active {
-      background-color: $primary;
-    }
-  }
-}
-
-.badge {
-  background-color: $primary;
-  color: $white;
-  border-radius: 50%;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 15px;
-
-  &-micro {
-    font-size: 9px;
-    width: 17px;
-    height: 17px;
-    line-height: 16px;
-  }
-}
-
-.textarea-row-icon {
-  .icon-wrap {
-    top: 0;
-    height: 60px;
-  }
-}
-
-.input-item, .textarea-item {
-  background-color: #fff;
-  transition: all 0.3s;
-  color: $black;
-  border: 1px solid #d1d1d1;
-  border-radius: 0;
-  padding: 0 15px;
-  height: 60px;
-  font-size: 14px;
-  width: 285px;
-  display: block;
-  box-shadow: none;
-  appearance: none;
-
-  &::placeholder {
-    color: $black;
-  }
-
-  &:focus {
-    border-color: $primary;
-    outline: none;
-  }
-}
-
-.textarea-item {
-  resize: none;
-  width: 285px;
-  height: 140px;
-  padding-top: 22px;
-  @include up('md') {
-    width: 580px;
-  }
-}
-
-.input-row, .textarea-row {
-  margin-top: 14px;
-  margin-bottom: 14px;
-  position: relative;
-
-  &-icon {
-    .input-item, .textarea-item {
-      padding-left: 60px;
-    }
-
-    .icon-wrap {
-      position: absolute;
-      left: 10px;
-      width: 40px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  &-mail .icon {
-    svg path {
-      fill: darken(#c0c7cd, 20%);
-    }
-
-    margin-top: -2px;
-  }
-
-  .icon-pen {
-    margin-top: 3px;
-  }
-}
-
 .form-row-invalid {
   .input-item, .textarea-item {
     border-color: #b6174f;
@@ -454,32 +329,6 @@ img {
   }
 }
 
-.price {
-  font-size: 17px;
-  color: $primary;
-  margin: 2px 0;
-
-  &-old {
-    font-size: 14px;
-    color: #a7acaa;
-
-    span {
-      position: relative;
-      display: inline-block;
-
-      &:after {
-        content: '';
-        width: 105%;
-        height: 1px;
-        background-color: #a7acaa;
-        position: absolute;
-        left: 0;
-        bottom: 0.4em;
-      }
-    }
-  }
-}
-
 .breadcrumbs {
   font-size: 14px;
   margin-bottom: 34px;
@@ -497,66 +346,6 @@ img {
 
   .active {
     pointer-events: none;
-  }
-}
-
-.product-quantity {
-  width: 130px;
-  color: $black-secondary;
-  position: relative;
-  height: 40px;
-  line-height: 40px;
-  @include up('md') {
-    width: 160px;
-  }
-
-  &-substract, &-add {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    color: $black-secondary;
-    background-color: transparent;
-    border: 2px solid $black-secondary;
-    transition: all 0.4s;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    font-size: 30px;
-    padding: 0;
-    cursor: pointer;
-
-    &:hover, &:active {
-      background-color: $primary;
-      border-color: $primary;
-      color: $white;
-    }
-
-    &:focus {
-      border-color: $primary;
-      outline: none;
-    }
-  }
-
-  &-input {
-    text-align: center;
-    background: transparent;
-    padding: 0;
-    width: 100%;
-    display: block;
-    height: 40px;
-    border: none;
-    box-shadow: none;
-    padding-left: 45px;
-    padding-right: 45px;
-    font-size: 22px;
-
-    &:focus {
-      outline: none;
-    }
-
-    @include up('lg') {
-      font-size: 31px;
-    }
   }
 }
 
@@ -606,102 +395,20 @@ img {
   text-decoration: none;
 }
 
-
-.range-inputs {
-  display: flex;
-  margin-left: -20px;
-  margin-right: -20px;
-  margin-bottom: -20px;
-  min-width: 0;
-
-  .input-item {
-    border-radius: 4px;
-    width: 100%;
-    height: 40px;
-    padding-left: 30px;
-    padding-right: 4px;
-    font-size: 15px;
-    color: $black-secondary;
-  }
-
-  .input-row {
-    position: relative;
-    margin-left: 20px;
-    margin-right: 20px;
-    font-size: 12px;
-    flex-grow: 1;
-  }
-
-  .input-text {
-    line-height: 42px;
-    height: 40px;
-    font-size: 12px;
-    position: absolute;
-    left: 10px;
-  }
-}
-
-.pagination {
-  margin: 10px 0 20px;
-  padding: 0;
-  text-align: center;
-  list-style: none;
-}
-
-.pagination li {
-  display: inline-block;
-}
-
-.pagination .active {
-  cursor: default;
-  pointer-events: none;
-}
-
-.pagination a {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  color: $black-secondary;
-  text-decoration: none;
-  transition: all 0.4s;
-}
-
-.pagination a.active {
-  background-color: $primary;
-  color: #fff;
-}
-
-.pagination a:hover {
-  background-color: $gray-secondary;
-}
-
-// Sometimes we use PNG sprites with retina support. It's disabled by default
-
-//@mixin retina-sprites($retina-groups) {
-//  @each $retina-group in $retina-groups {
-//    $sprite-name: nth($retina-group, 1);
-//    .i-#{$sprite-name} {
-//      @include retina-sprite($retina-group);
-//    }
-//  }
-//}
-
 .rect {
   width: 45px;
-  background: linear-gradient(to bottom, #0375e7 0%, #022a8a 100%);
+  background-image: linear-gradient(135deg, #0375e7, #022a8a);
   position: absolute;
   transform: skew(-15deg, 0) translateX(-20px);
   height: 1000px;
   left: -120px;
   top: 0;
-
   &-white {
     background: #fff;
   }
 
   &-red {
-    background: linear-gradient(to bottom, #d21300 0%, #f8171f 100%);
+    background: linear-gradient(to bottom, #d21300, #f8171f);
   }
 
   @include up('md') {
@@ -709,9 +416,26 @@ img {
   }
 }
 
+@-webkit-keyframes Grad {
+  0%{background-position:49% 0%}
+  50%{background-position:52% 100%}
+  100%{background-position:49% 0%}
+}
+@-moz-keyframes Grad {
+  0%{background-position:49% 0%}
+  50%{background-position:52% 100%}
+  100%{background-position:49% 0%}
+}
+@keyframes Grad {
+  0%{background-position:49% 0%}
+  50%{background-position:52% 100%}
+  100%{background-position:49% 0%}
+}
+
 .map-text {
   margin-top: 40px;
   font-size: 20px;
+  line-height: 1.3;
   max-width: 300px;
   .skew-text {
     margin-top: -10px;
@@ -733,6 +457,7 @@ img {
   }
   @include up('xl') {
     left: -50px;
+    bottom: 150px;
   }
 }
 
@@ -747,6 +472,7 @@ img {
   &__line {
     width: calc(100% - 94px);
     position: absolute;
+    z-index: 20;
     left: 0;
     top: 0;
     height: 100%;
@@ -810,12 +536,16 @@ img {
     left: -2020px;
     display: block;
   }
+  @include up('xl') {
+    left: -2070px;
+  }
 }
 
 #rect-blue-1 {
   @include up('xl') {
     height: 3000px;
-    left: -277px;
+    width: 70px;
+    left: -319px;
   }
 }
 #rect-blue-2 {
@@ -826,7 +556,8 @@ img {
   }
   @include up('xl') {
     height: 3000px;
-    left: -207px;
+    width: 35px;
+    left: -232px;
   }
 }
 
@@ -842,7 +573,7 @@ img {
     left: 140px;
   }
   @include up('xl') {
-    height: 100%;
+    height: calc(100% - 130px);
   }
 }
 
@@ -860,7 +591,8 @@ img {
   }
   @include up('xl') {
     height: 3000px;
-    left: -450px;
+    top: 240px;
+    left: -490px;
   }
 }
 
@@ -957,18 +689,27 @@ img {
   width: 25px;
   height: 100%;
   display: none;
+  z-index: 1;
   @include up('lg') {
     display: block;
+  }
+  @include up('xl') {
+    left: calc(100% - 286px);
   }
 }
 
 #rect-services-blue-2 {
   left: calc(100% - 179px);
-  width: 100px;
+  width: 140px;
   height: 100%;
   display: none;
+  z-index: 1;
   @include up('lg') {
     display: block;
+  }
+  @include up('xl') {
+    top: 20px;
+    left: calc(100% - 230px);
   }
 }
 
@@ -977,6 +718,7 @@ img {
   width: 34px;
   height: 600px;
   display: none;
+  z-index: 1;
   @include up('lg') {
     display: block;
   }
@@ -1347,8 +1089,6 @@ img {
   }
 }
 
-// @TODO: add inputmask.js for phone field
-
 .form-row__input, .form-row__textarea {
   width: 100%;
   height: 45px;
@@ -1359,7 +1099,7 @@ img {
   padding-right: 25px;
   border: none;
   box-shadow: none;
-  border-radius: none;
+  border-radius: 0;
   outline: 0;
   &::placeholder {
     color: #3b3b3b;
